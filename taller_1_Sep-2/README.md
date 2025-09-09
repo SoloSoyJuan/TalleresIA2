@@ -1,6 +1,6 @@
 # Resultados
 
-Se realizan los ejercicios del taller 1 (Advanced prompt engineering)
+Se realizan los ejercicios del taller 1 (Advanced prompt engineering). Repositorio origen: [Repositirio JuanJojoa7](https://github.com/JuanJojoa7/advanced-prompt-engineering.git)
 
 ## Parte 1:
 
@@ -194,15 +194,44 @@ print(f'"{contrasena_sin_especial}" es válida? {validar_contrasena(contrasena_s
 En esta segunda parte vamos a soliciatar al LLM que  Extraer datos específicos de un texto no estructurado y presentarlos en formato JSON. En el primer ejercicio (A) se realizará con un *prompt simple* y en el segundo ejercicio (B) con un *prompt avanzado*. Finalmente, comparar los resultados con los criterios de evaluación.
 
 ### Ejercicio 2A
-
+Este es el prompt simple utilizado:
 
 ```
 Saca los datos importantes de este texto en JSON:
 
 "La reunión de lanzamiento del Proyecto Fénix será el 15 de octubre de 2024 a las 10:30 AM en la Sala Júpiter. Los asistentes confirmados son Ana García (Líder de Proyecto), Carlos Rodríguez (Desarrollador Principal) y Elena Fernández (Diseñadora UX). El presupuesto asignado es de $25,000 USD."
 ```
+Esta es la respuesta generada por __Gemini 2.5 Flash__ al utilizar el *prompt simple*:
 
+```
+{
+  "evento": "Reunión de lanzamiento del Proyecto Fénix",
+  "fecha": "2024-10-15",
+  "hora": "10:30 AM",
+  "lugar": "Sala Júpiter",
+  "participantes_confirmados": [
+    {
+      "nombre": "Ana García",
+      "rol": "Líder de Proyecto"
+    },
+    {
+      "nombre": "Carlos Rodríguez",
+      "rol": "Desarrollador Principal"
+    },
+    {
+      "nombre": "Elena Fernández",
+      "rol": "Diseñadora UX"
+    }
+  ],
+  "presupuesto_asignado": {
+    "cantidad": 25000,
+    "moneda": "USD"
+  }
+}
+```
+---
 ### Ejercicio 2B
+Este es el prompt avanzado utilizado:
 
 ```
 **Rol:** Eres un asistente de procesamiento de datos altamente preciso.
@@ -244,6 +273,38 @@ Restricciones:
 - La fecha y hora deben ser normalizadas a los formatos especificados.
 - No incluyas campos que no estén en el esquema.
 ```
+---
+Esta es la respuesta generada por __Gemini 2.5 Flash__ al utilizar el *prompt avanzado*:
+```
+{
+  "proyecto": {
+    "nombre": "Proyecto Fénix",
+    "presupuesto": {
+      "monto": 25000,
+      "moneda": "USD"
+    }
+  },
+  "reunion": {
+    "fecha": "2024-10-15",
+    "hora": "10:30",
+    "ubicacion": "Sala Júpiter"
+  },
+  "asistentes": [
+    {
+      "nombre": "Ana García",
+      "rol": "Líder de Proyecto"
+    },
+    {
+      "nombre": "Carlos Rodríguez",
+      "rol": "Desarrollador Principal"
+    },
+    {
+      "nombre": "Elena Fernández",
+      "rol": "Diseñadora UX"
+    }
+  ]
+}
+```
 
 ## Criterios de evaluación Ejercicio 2:
 - Completitud: ¿La función del prompt simple incluyó todas las reglas?
@@ -252,3 +313,36 @@ Restricciones:
 - Robustez: ¿La función maneja casos borde que el prompt simple podría haber ignorado?
 
 ---
+
+## Parte 3
+
+En esta segunda parte vamos a soliciatar al LLM que Escribir un párrafo corto sobre un tema complejo, adaptado a una audiencia específica. En el primer ejercicio (A) se realizará con un *prompt simple* y en el segundo ejercicio (B) con un *prompt avanzado*. Finalmente, comparar los resultados con los criterios de evaluación.
+
+
+### Ejercicio 3A
+Este es el prompt simple utilizado:
+
+```
+
+```
+Esta es la respuesta generada por __Gemini 2.5 Flash__ al utilizar el *prompt simple*:
+
+```
+
+```
+### Ejercicio 3B
+Este es el prompt avanzado utilizado:
+
+```
+
+```
+Esta es la respuesta generada por __Gemini 2.5 Flash__ al utilizar el *prompt simple*:
+```
+
+```
+
+## Criterios de evaluación Ejercicio 3:
+- Completitud: ¿La función del prompt simple incluyó todas las reglas?
+- Claridad: ¿El código está bien documentado? ¿Es fácil de entender?
+- Utilidad: ¿El prompt avanzado proporcionó ejemplos de uso que facilitan la prueba y la integración?
+- Robustez: ¿La función maneja casos borde que el prompt simple podría haber ignorado?
